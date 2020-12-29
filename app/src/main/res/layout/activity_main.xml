@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="70dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Header"
+                android:textSize="18sp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                style="@style/privacy_text"
+                android:layout_marginTop="29dp"
+                android:text="@string/privacy_text"/>
+
+            <Button
+                android:id="@+id/got_it"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="29dp"
+                android:text="@string/understood"
+                android:textSize="17sp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textAppearance="@style/rounded_button_text"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:gravity="center"
+                android:text="@string/privacy_header_2"/>
+
+
+            <TextView
+                android:id="@+id/long_long_text"
+                style="@style/privacy_text"
+                android:layout_marginTop="23dp"
+                android:text="@string/long_text"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- A visualização de rolagem como antes, mas omitindo-a -->
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <Button
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="@string/understood"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:textAppearance="@style/rounded_button_text"/>
+
+    </FrameLayout>
+
+    <!--
+    Esta visualização serve como dependência do OutOfScreenBottomSheetBehavior
+    (um filho direto do CoordinatorLayout)
+     -->
+
+    <View
+        android:id="@+id/behavior_dependency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_anchor="@id/got_it"
+        app:layout_anchorGravity="bottom"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
